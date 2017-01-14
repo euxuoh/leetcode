@@ -32,7 +32,7 @@ class KMP(object):
         i, j = 0, 0
 
         while i < s_len and j < p_len:
-            if s[i] == p[j]:
+            if j == -1 or s[i] == p[j]:
                 i, j = i + 1, j + 1
             else:
                 j = _next[j]
@@ -68,7 +68,7 @@ class KMP(object):
 
         return _next
 
-    def get_next_better(self, p):
+    def get_next_val(self, p):
         _next = [-1]
         k, j = -1, 0
 
@@ -88,5 +88,4 @@ class KMP(object):
 if __name__ == "__main__":
     solution = KMP()
     print(solution.brute_force('abca', 'bca'))
-    print(solution.get_next('ababababab'))
-    print(solution.get_next_better('ababababab'))
+    print(solution.kmp('asefasdfasdf', 'asd'))
