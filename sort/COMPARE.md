@@ -16,4 +16,4 @@
     - 快速排序
 
 ## 比较 
-[](https://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95#.E7.AE.80.E8.A6.81.E6.AF.94.E8.BE.83)
+![排序算法比较](https://github.com/euxuoh/leetcode/blob/master/sort/sort-compare.png)
