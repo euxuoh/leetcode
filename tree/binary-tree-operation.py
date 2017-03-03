@@ -32,10 +32,7 @@ class TreeManipulation(object):
         if root is None:
             return 0
 
-        left = self.max_depth(root.left)
-        right = self.max_depth(root.right)
-
-        return (left if left > right else right) + 1
+        return max(self.max_depth(root.left), self.max_depth(root.right)) + 1
 
     def invert_tree_recursive(self, root):
         if root:
@@ -64,6 +61,15 @@ class TreeManipulation(object):
                     return True
 
         return False
+
+    def is_balanced(self, root):
+        if root is None:
+            return True
+
+        left = self.max_depth(root.left)
+        right = self.max_depth(root.right)
+
+        return abs(left - right) <= 1 and self.is_balanced(root.left) and self.is_balanced(root.right)
 
 
 if __name__ == "__main__":
