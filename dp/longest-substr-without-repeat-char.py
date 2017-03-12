@@ -73,8 +73,12 @@ class Solution(object):
         return max_len
 
     def LNRS_dp_hash(self, s):
-        """
+        """dp + hash
+        hash记录重复元素的位置，这样就不必“回头”了，而时间复杂度必然降为O(N)，
+        只不过需要一个辅助的常数空间visit[256]，典型的空间换时间
 
+        Time: O(n)
+        Space: O(n)
         :param s:
         :return:
         """
