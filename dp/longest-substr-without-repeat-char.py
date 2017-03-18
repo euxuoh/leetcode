@@ -86,9 +86,8 @@ class Solution(object):
             return 0
 
         visited, dp = [-1] * 256, [1]
-        visited[ord(s[0])] = 0
-
-        last_start, max_len = 0, 0
+        visited[ord(s[0])] = 0  # 记录上次访问的位置
+        max_index, max_len = 0, 0
 
         for i in range(1, len(s)):
             dp.append(1)
@@ -96,33 +95,37 @@ class Solution(object):
                 dp[i] = dp[i-1] + 1
                 visited[ord(s[i])] = i
             else:
-                if last_start <= visited[ord(s[i])]:
-                    dp[i] = i - visited[ord(s[i])]
-                    last_start = visited[ord(s[i])] + 1
-                    visited[ord(s[i])] = i
-            max_len = max(max_len, dp[i])
+                dp[i] = i - visited[ord(s[i])]
+                visited[ord(s[i])] = i
 
-        return max_len
+            if dp[i] > max_len:
+                max_len = dp[i]
+                max_index = i + 1 - max_len
+
+        return max_index, max_len
 
     def length_of_longest_substr(self, s):
         if not s:
             return 0
 
-        visited = defaultdict(int)
-        visited[s[-1]] = len(s) - 1
-        dp = [0] * len(s)
-        dp[len(s) - 1] = 1
-        _max = 0
+        visited = [-1] * 256
+        visited[ord(s[0])] = 0
+        max_index, max_len, curr_len = 0, 0, 1
 
-        for i in range(len(s)-2, -1, -1):
-            if s[i] in visited:
-                dp[i] = min(visited.get(s[i])-i, dp[i+1])
+        for i in range(1, len(s)):
+            if visited[ord(s[i])] == -1:
+                curr_len += 1
+                visited[ord(s[i])] = i
             else:
-                dp[i] = dp[i+1] + 1
-            _max = max(_max, dp[i])
-            visited[s[i]] = i
+                curr_len = i - visited[ord(s[i])]
+                visited[ord(s[i])] = i
 
-        return _max
+            if curr_len > max_len:
+                max_len = curr_len
+                max_index = i + 1 - max_len
+
+        return max_index, max_len
+
 
 if __name__ == "__main__":
     print(Solution().LNRS_hash("abcabcbb"))
