@@ -25,16 +25,27 @@ class Knapsack(object):
         :return result: int 最大价值
         """
         num_of_goods = len(val)
-        val_matrix = [[0] * (W+1) for _ in range(num_of_goods+1)]
+        dp = [[0] * (W+1) for _ in range(num_of_goods+1)]
 
         for i in range(1, num_of_goods+1):
             for j in range(1, W+1):
                 if wt[i-1] <= j:  # 可以放入
-                    val_matrix[i][j] = max(val_matrix[i-1][j], val_matrix[i-1][j-wt[i-1]]+val[i-1])
+                    dp[i][j] = max(dp[i-1][j], dp[i-1][j-wt[i-1]]+val[i-1])
                 else:
-                    val_matrix[i][j] = val_matrix[i-1][j]
+                    dp[i][j] = dp[i-1][j]
 
-        return val_matrix[-1][-1]
+        return dp[-1][-1]
+
+    def knapsack_optimize(self, val, wt, W):
+        dp = [0 for _ in range(W+1)]
+        n = len(val)
+
+        for i in range(n):
+            for j in range(W, wt[i]-1, -1):
+                dp[j] = max(dp[j], dp[j-wt[i]] + val[i])
+
+        return dp[W]
 
 if __name__ == "__main__":
     print(Knapsack().zero_one_knapsack([10, 40, 30, 50], [5, 4, 6, 3], 10))
+    print(Knapsack().knapsack_optimize([10, 40, 30, 50], [5, 4, 6, 3], 10))
