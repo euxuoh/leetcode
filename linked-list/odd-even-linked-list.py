@@ -21,7 +21,7 @@ The first node is considered odd, the second node even and so on ...
 @author: houxue
 @date: 2016/12/7
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode, create_list
 
 
 class Solution(object):

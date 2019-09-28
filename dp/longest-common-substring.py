@@ -18,6 +18,9 @@ class Solution(object):
         """
         def lcs_len(s, t):
             """
+            使用dp[i][j]表示 以x[i]和y[j]结尾的最长公共子串的长度，因为要求子串连续，
+            所以对于X[i]与Y[j]来讲，它们要么与之前的公共子串构成新的公共子串；要么就是不构成公共子串
+            所以，动态转移方程为：
             dp[i][j] = dp[i-1][j-1] + 1, if s[i]==t[j];
             dp[i][j] = 0, if s[i]!=t[j]
             :param s:
@@ -49,6 +52,9 @@ class Solution(object):
         """
         def common_length(s1, s2):
             length = 0
+            if '#' in s1 and '#' in s2:
+                return length
+
             for ch in zip(s1, s2):
                 if ch[0] == ch[1]:
                     length += 1
@@ -61,11 +67,12 @@ class Solution(object):
         suffix.sort()
         _max_length = 0
 
-        for i in range(len(suffix)-2):
+        for i in range(len(suffix)-1):
             _max_length = max(_max_length, common_length(suffix[i], suffix[i+1]))
 
         return _max_length
 
 if __name__ == "__main__":
-    print(Solution().LCSstr_dp('acaccbabb', 'acbac'))
-    print(Solution().LCSs_suffix('acaccbabb', 'acbac'))
+    from itertools import combinations
+    #   print(Solution().LCSstr_dp('acaccbabb', 'acbac'))
+    print(Solution().LCSs_suffix('word', 'word'))

@@ -11,7 +11,7 @@ A linked list can be reversed either iteratively or recursively. Could you imple
 @author: houxue
 @date: 2016/12/4
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode, create_list
 
 
 class Solution(object):

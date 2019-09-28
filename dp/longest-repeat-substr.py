@@ -19,7 +19,6 @@ class Solution(object):
 
     def lrs_suffix(self, s):
         """后缀数组
-
         :param s:
         :return:
         """
@@ -42,4 +41,5 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    print(Solution().lrs_suffix('banana'))
+    # print(Solution().lrs_suffix('banana'))
+    print(bin(123))

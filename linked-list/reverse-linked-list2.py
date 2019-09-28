@@ -17,7 +17,7 @@ Given m, n satisfy the following condition:
 @author: houxue
 @date: 2016/12/8
 """
-from listnode import create_list
+from .listnode import create_list
 
 
 # Definition for singly-linked list.

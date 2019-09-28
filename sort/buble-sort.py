@@ -20,11 +20,10 @@ class BubleSort(object):
                     nums[j], nums[j+1] = nums[j+1], nums[j]
 
     def buble_sort_flag(self, nums):
-        n = len(nums)
-        if n <= 1:
+        if len(nums) <= 1:
             return nums
 
-        n -= 1
+        n = len(nums) - 1
         while n > 0:
             pos = 0
             for j in range(0, n):
@@ -40,7 +39,6 @@ class BubleSort(object):
             return nums
 
         low, high = 0, n-1
-
         while low < high:
             for j in range(low, high):
                 if nums[j] > nums[j+1]:
@@ -56,6 +54,6 @@ if __name__ == "__main__":
     l = [random.randint(1, 100) for _ in range(10)]
     print(l)
     BubleSort().buble_sort(l)
-    BubleSort().buble_sort_flag(l)
-    BubleSort().buble_sort_both_way(l)
+    # BubleSort().buble_sort_flag(l)
+    # BubleSort().buble_sort_both_way(l)
     print(l)

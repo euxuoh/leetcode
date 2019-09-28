@@ -40,5 +40,3 @@ class Solution(object):
 if __name__ == "__main__":
     solution = Solution()
     test1 = [1, 1, 1, 2, 2, 3, 3]
-    print solution.removeDuplicates(test1)
-    print test1

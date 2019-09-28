@@ -24,20 +24,24 @@ class Solution(object):
         :type inorder: List[int]
         :rtype: TreeNode
         """
-        if inorder:
-            ind = inorder.index(preorder.pop(0))
-            root = TreeNode(inorder[ind])
-            root.left = self.build_tree_from_pre_inorder(preorder, inorder[:ind])
-            root.right = self.build_tree_from_pre_inorder(preorder, inorder[ind+1:])
-            return root
+        if not inorder:
+            return None
+
+        ind = inorder.index(preorder.pop(0))
+        root = TreeNode(inorder[ind])
+        root.left = self.build_tree_from_pre_inorder(preorder, inorder[:ind])
+        root.right = self.build_tree_from_pre_inorder(preorder, inorder[ind+1:])
+        return root
 
     def build_tree_from_in_postorder(self, inorder, postorder):
-        if inorder:
-            ind = inorder.index(postorder.pop())
-            root = TreeNode(inorder[ind])
-            root.right = self.build_tree_from_in_postorder(inorder[ind+1:], postorder)
-            root.left = self.build_tree_from_in_postorder(inorder[:ind], postorder)
-            return root
+        if not inorder:
+            return None
+
+        ind = inorder.index(postorder.pop())
+        root = TreeNode(inorder[ind])
+        root.right = self.build_tree_from_in_postorder(inorder[ind+1:], postorder)
+        root.left = self.build_tree_from_in_postorder(inorder[:ind], postorder)
+        return root
 
 
 if __name__ == "__main__":

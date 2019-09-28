@@ -28,8 +28,10 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        stack = []
+        if root is None or k <= 0:
+            return None
 
+        stack = []
         while True:
             while root:
                 stack.append(root)

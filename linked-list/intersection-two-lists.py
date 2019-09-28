@@ -25,7 +25,7 @@ Your code should preferably run in O(n) time and use only O(1) memory.
 @author: houxue
 @date: 2016/12/4
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode
 
 
 class Solution(object):

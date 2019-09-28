@@ -59,4 +59,5 @@ class Solution(object):
         return slow
 
 if __name__ == "__main__":
-    pass
+    solution = Solution()
+    print(solution.findDuplicate2([2, 1, 3, 2]))

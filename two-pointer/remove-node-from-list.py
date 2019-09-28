@@ -68,4 +68,4 @@ class Solution(object):
 if __name__ == '__main__':
     solution = Solution()
     l = create_list(range(10))
-    print solution.removeNthFromEnd(l, 101)
+    print(solution.removeNthFromEnd(l, 101))

@@ -71,6 +71,17 @@ class TreeManipulation(object):
 
         return abs(left - right) <= 1 and self.is_balanced(root.left) and self.is_balanced(root.right)
 
+    def is_balanced_effcient(self, root):
+        return self.check_balance_depth(root)[0]
+
+    def check_balance_depth(self, root):
+        if root is None:
+            return True, 0
+        left_balance, left_depth = self.check_balance_depth(root.left)
+        right_balance, right_depth = self.check_balance_depth(root.right)
+        max_depth = max(left_depth, right_depth) + 1
+        return left_balance and right_balance and abs(left_depth-right_depth) <= 1, max_depth
+
 
 if __name__ == "__main__":
     root = TreeNode(1)
@@ -92,4 +103,8 @@ if __name__ == "__main__":
 
     # print(TreeManipulation().search_tree(root, 6).val)
     # print(TreeManipulation().max_depth(root))
-    print(TreeManipulation().is_same_tree(a, b))
+    # print(TreeManipulation().is_same_tree(a, b))
+    print(TreeManipulation().is_balanced(root))
+    print(TreeManipulation().is_balanced_effcient(root))
+
+    from sklearn.pipeline import Pipeline, FeatureUnion

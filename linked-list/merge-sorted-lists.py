@@ -9,7 +9,7 @@ The new list should be made by splicing together the nodes of the first two list
 @author: houxue
 @date: 2016/12/6
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode
 
 
 class Solution(object):

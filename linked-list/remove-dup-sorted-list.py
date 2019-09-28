@@ -13,24 +13,27 @@ Given 1->1->2->3->3, return 1->2->3.
 @author: houxue
 @date: 2016/12/4
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode, create_list
 
 
 class Solution(object):
     def deleteDuplicates(self, head):
         """
-            cur = head
-            while cur:
-                runner = cur.next
-                while runner and runner.val == cur.val:
-                    runner = runner.next
-                cur.next = runner
-                cur = runner
-            return head
+        cur = head
+        while cur:
+            runner = cur.next
+            while runner and runner.val == cur.val:
+                runner = runner.next
+            cur.next = runner
+            cur = runner
+        return head
 
         :type head: ListNode
         :rtype: ListNode
         """
+        if not head:
+            return head
+
         uniq, fast = head, head.next
 
         while fast:

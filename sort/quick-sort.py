@@ -18,48 +18,49 @@ class QuickSort(object):
             self.quick_sort([x for x in nums[1:] if x > nums[0]])
 
     def partition(self, nums, low, high):
-        privot = nums[low]
+        pivot = nums[low]
 
         while low < high:
-            while low < high and nums[high] >= privot:
+            while low < high and nums[high] >= pivot:
                 high -= 1
             nums[low], nums[high] = nums[high], nums[low]
 
-            while low < high and nums[low] <= privot:
+            while low < high and nums[low] <= pivot:
                 low += 1
             nums[low], nums[high] = nums[high], nums[low]
-        print(nums, privot)
+
         return low
 
     def quick_sort_recursion(self, nums, low, high):
         if low < high:
-            privot = self.partition(nums, low, high)
-            self.quick_sort_recursion(nums, low, privot-1)
-            self.quick_sort_recursion(nums, privot+1, high)
+            pivot = self.partition(nums, low, high)
+            self.quick_sort_recursion(nums, low, pivot-1)
+            self.quick_sort_recursion(nums, pivot+1, high)
 
     def quick_sort_iteration(self, nums, low, high):
         stack = []
 
         if low < high:
-            privot = self.partition(nums, low, high)
-            if privot - 1 > low:
+            pivot = self.partition(nums, low, high)
+            if pivot - 1 > low:
                 stack.append(low)
-                stack.append(privot-1)
-            if privot + 1 < high:
-                stack.append(privot+1)
+                stack.append(pivot-1)
+            if pivot + 1 < high:
+                stack.append(pivot+1)
                 stack.append(high)
 
             while stack:
                 print(stack)
-                right = stack.pop()
-                left = stack.pop()
-                p = self.partition(nums, left, right)
-                if p - 1 > left:
-                    stack.append(left)
-                    stack.append(p-1)
-                if p + 1 < right:
-                    stack.append(p+1)
-                    stack.append(right)
+                high = stack.pop()
+                low = stack.pop()
+                pivot = self.partition(nums, low, high)
+                if pivot - 1 > low:
+                    stack.append(low)
+                    stack.append(pivot-1)
+                if pivot + 1 < high:
+                    stack.append(pivot+1)
+                    stack.append(high)
+
 
 if __name__ == "__main__":
     import random

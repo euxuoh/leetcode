@@ -17,6 +17,7 @@ Your algorithm should run in O(n2) complexity.
 @author: houxue
 @date: 2017/3/7
 """
+import bisect
 
 
 class Solution(object):
@@ -31,7 +32,8 @@ class Solution(object):
             if nums[i] > LIS[-1]:
                 LIS.append(nums[i])
             else:
-                pos = self.binary_search(LIS, nums[i])
+                # pos = self.binary_search(LIS, nums[i])
+                pos = bisect.bisect_left(LIS, nums[i])
                 LIS[pos] = nums[i]
 
         # print(LIS)
@@ -52,4 +54,4 @@ class Solution(object):
         return left
 
 if __name__ == "__main__":
-    print(Solution().lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]))
+    print(Solution().lengthOfLIS([10, 9, 2, 2, 5, 3, 7, 101, 18]))

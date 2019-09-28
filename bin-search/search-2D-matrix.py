@@ -65,12 +65,8 @@ class Solution(object):
         :type target: int
         :rtype: bool
         """
-        rows = len(matrix)
-        if rows == 0:
-            return False
-
-        cols = len(matrix[0])
-        if cols == 0:
+        rows, cols = len(matrix), len(matrix[0])
+        if rows == 0 or cols == 0:
             return False
 
         i, j = 0, cols-1

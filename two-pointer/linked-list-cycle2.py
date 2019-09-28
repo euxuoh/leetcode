@@ -14,7 +14,7 @@ Can you solve it without using extra space?
 @author: houxue
 @date: 2016/12/4
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode, create_list
 
 
 class Solution(object):
@@ -47,4 +47,4 @@ if __name__ == "__main__":
     head.next = ListNode(2)
     head.next.next = ListNode(3)
     head.next.next.next = head.next
-    print solution.detectCycle(head)
+    print(solution.detectCycle(head))

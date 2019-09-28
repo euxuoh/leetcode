@@ -15,7 +15,7 @@ What if you cannot modify the input lists? In other words, reversing the lists i
 @author: houxue
 @date: 2016/12/6
 """
-from listnode import create_list
+from .listnode import create_list
 
 
 # Definition for singly-linked list.

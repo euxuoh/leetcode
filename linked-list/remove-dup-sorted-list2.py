@@ -14,7 +14,6 @@ Given 1->1->1->2->3, return 2->3.
 @author: houxue
 @date: 2016/12/6
 """
-from listnode import create_list
 
 
 # Definition for singly-linked list.

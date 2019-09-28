@@ -9,7 +9,7 @@ Sort a linked list using insertion sort.
 @author: houxue
 @date: 2016/12/7
 """
-from listnode import create_list
+from .listnode import create_list
 
 
 # Definition for singly-linked list.

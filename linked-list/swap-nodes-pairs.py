@@ -15,7 +15,7 @@ You may not modify the values in the list, only nodes itself can be changed.
 @author: houxue
 @date: 2016/12/6
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode
 
 
 class Solution(object):

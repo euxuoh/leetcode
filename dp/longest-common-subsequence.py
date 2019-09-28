@@ -12,7 +12,6 @@ longest common sub-sequence
 class Solution(object):
     def lcs_basic(self, s, t):
         """
-
         :param s: string
         :param t: string
         :return:
@@ -36,6 +35,7 @@ class Solution(object):
 
     def lcs_length(self, s, t):
         """
+        D[i][j] 定义为s1, s2的前i, j个字符串的最长common subsequence.
         构造二维数组dp[i][j], 记录s[i]和t[j]的LCS长度, (i, j)是前缀
         dp[i][j] = 0, if i == j == 0
         dp[i][j] = dp[i-1][j-1] + 1, if i, j > 0 and s[i] == t[j]
@@ -71,4 +71,4 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    Solution().lcs_dp('abcbdab', 'bdcaba')
+    Solution().lcs_dp('abcbe', 'abdcadbae')

@@ -27,15 +27,15 @@ class ListNode(object):
         self.val = x
         self.next = None
 
-    def __str__(self):
-        if self:
-            return '{}'.format(self.val)
-        else:
-            return None
-
-    # def __repr__(self):
+    # def __str__(self):
     #     if self:
-    #         return '{}->{}'.format(self.val, repr(self.next))
+    #         return '{}'.format(self.val)
+    #     else:
+    #         return None
+
+    def __repr__(self):
+        if self:
+            return '{}->{}'.format(self.val, repr(self.next))
 
 
 if __name__ == "__main__":

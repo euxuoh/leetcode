@@ -38,6 +38,12 @@ class Solution(object):
                 left = mid + 1
         return left == x / left
 
+    def newton_sqrt(self, x):
+        t = x
+        while t * t > x:
+            t = int((t + x/t) / 2)
+        return t
+
     def is_perfect_square(self, num):
         x = self.sqrt(num)
         return x == num / x

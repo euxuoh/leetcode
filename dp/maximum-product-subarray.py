@@ -55,6 +55,5 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-    import bisect
     print(Solution().maxProduct([2, 3, -2, 4]))
     print(Solution().max_product([2, 3, -2, 4]))

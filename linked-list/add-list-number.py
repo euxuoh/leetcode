@@ -13,7 +13,6 @@ Output: 7 -> 0 -> 8
 @author: houxue
 @date: 2016/12/8
 """
-from listnode import create_list
 
 
 # Definition for singly-linked list.

@@ -19,7 +19,7 @@ class HeapSort(object):
                 break
 
             # 始终和较大的子节点互换
-            if child + 1 < end and nums[child] < nums[child+1]:
+            if child + 1 <= end and nums[child] < nums[child+1]:
                 child += 1
             if nums[root] < nums[child]:
                 nums[root], nums[child] = nums[child], nums[root]

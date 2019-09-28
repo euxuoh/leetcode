@@ -12,7 +12,7 @@ the linked list should become 1 -> 2 -> 4 after calling your function.
 @author: houxue
 @date: 2016/12/6
 """
-from listnode import ListNode, create_list
+from .listnode import ListNode
 
 
 class Solution(object):

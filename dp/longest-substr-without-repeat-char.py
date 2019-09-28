@@ -7,7 +7,6 @@ doc string
 @author: houxue
 @date: 2017/3/11
 """
-from collections import defaultdict
 
 
 class Solution(object):
