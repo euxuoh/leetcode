@@ -13,6 +13,7 @@ public:
             return m+n;
         }
 
+        // dp[i, j]: word1[0,i]->word2[0,j]的最小编辑距离
         int dp[m+1][n+1];
 
         for (int i = 0; i <= m; ++i) {

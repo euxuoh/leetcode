@@ -9,6 +9,7 @@ public:
         int m = text1.size();
         int n = text2.size();
 
+        // dp[i, j]: text1[0,i]和text2[0,j]的最长公共子序列
         vector<vector<int>> dp(m+1, vector<int>(n+1, 0));
 
         for (int i = 1; i <= m; ++i) {
