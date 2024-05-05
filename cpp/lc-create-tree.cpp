@@ -23,7 +23,7 @@ TreeNode* create_tree(vector<string> nodes) {
     int i = 1;
     while (i < nodes.size()) {
         int cur_size = q.size();
-        for (int j = 0; j < cur_size; ++j) {
+        for (int j = 0; j < cur_size && i < nodes.size(); ++j) {
             TreeNode* node = q.front();
             q.pop();
             if (nodes[i] != "null") {
